@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: face-recognition
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: face-recognition
+  template:
+    metadata:
+      labels:
+        app: face-recognition
+    spec:
+      containers:
+      - name: face-recognition
+        image: face-recognition
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 5000
